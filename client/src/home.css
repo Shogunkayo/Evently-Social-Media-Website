@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand;
+}
+
+
+/*-----------------Top PART------------------------*/
+
+.hometop {
+    display: relative;
+    overflow-y: hidden;
+}
+
+.homenav {
+    display: flex;
+    position: fixed;
+    width: 97%;
+    padding: 10px 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #11999E;
+    color: #E4F9F5;
+}
+
+.homenav h1 {
+    font-size: 2.5em;
+}
+
+.homenav .links {
+    margin-left: auto;
+}
+
+.homenav a {
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    color: #E4F9F5;
+}
+
+.homenav a:active {
+    color: #f1356d;
+    border-bottom: 2px solid #22afb4;
+}
+
+.homenav a:hover {
+    color: #f1356d;
+}
+
+.homebody {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 230px;
+    padding-bottom: 230px;
+    background-color: rgba(41, 74, 77, 0.843);
+    background-image: url(images/homebg1.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-bottom: 1.5px solid black;
+    border-top: 1.5px solid black;
+}
+
+.homebody .content {
+    color: #E4F9F5;
+    width: auto;
+    height: auto;
+}
+
+.homebody .content h2 {
+    font-size: 4em;
+}
+
+.homebody .content h4 {
+    font-size: 1.5em;
+}
+
+.homebody .content p {
+    font-size: 1.2em;
+}
+
+.container {
+    position: relative;
+}
+
+.homefeatures {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    padding-top: 70px;
+    padding-bottom: 123px;
+}
+
+.homefeatures div {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.homefeatures h3 {
+    color: #22cca4;
+    font-size: 2em;
+}
+
+.homefeatures p {
+    color: #22afb4;
+    font-size: 1.3em;
+}
+
+
+/*-----------------BOTTOM PART------------------------*/
+
+.homebottom {
+    display: relative;
+    overflow: hidden;
+}
+
+.abouthead {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #40514E;
+    font-style: italic;
+}
+
+.profiles {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 300px;
+}
+
+.profiles div *{
+    padding: 3px 0px;
+}
+
+.profiles div h2 {
+    text-align: center;
+    color: #22afb4;
+}
+
+.profiles div p {
+    color: #11999E;
+}
+
+.profiles img {
+    margin: 0;
+    padding: 0;
+    border: 5px solid #40514E;
+    border-radius: 30px;
+}
+
+.feedback {
+    text-align: center;
+    background-color: #11999E;
+    width: 650px;
+    height: 500px;
+    margin: 0 auto;
+    border: 3px solid #40514E;
+    border-radius: 40px
+}
+
+.feedback h4 {
+    font-size: 2em;
+    padding: 10px 0px;
+    color: #E4F9F5;
+}
+
+.feedback form {
+    position: relative;
+    font-size: 1.5em;
+    color: #22cca4;
+}
+
+.feedback form label {
+    padding: 0px 30px;
+}
+
+.feedback textarea:focus {
+    outline: none;
+}
+
+.feedback input:focus {
+    outline: none;
+}
+
+input, textarea {
+    font-size: 60%;
+}
+
+.feedback form input {
+    height: 2.5em;
+    width: 40%;
+    border: 3px solid #40514E;
+    border-radius: 10px;
+}
+
+.feedback form textarea {
+    height: 6em;
+    width: 40%;
+    border: 3px solid #40514E;
+    border-radius: 10px;
+    resize: none;
+}
+
+.feedback form button {
+    display: block;
+    position: absolute;
+    top: 370px;
+    font-size: 1.2em;
+    left: 245px;
+    width: 25%;
+
+    background: #22cca4;
+    color: #E4F9F5;
+    border: 3px solid #40514E;
+    border-radius: 10px;
+}
+
+
+
+
+
+
