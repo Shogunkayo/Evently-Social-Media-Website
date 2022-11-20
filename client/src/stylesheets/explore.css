@@ -1,0 +1,187 @@
+
+/*-----------------Headers------------------------*/
+
+.explore-header {
+    position: relative;
+    left: 30%;
+    top: 80px;
+    width: 65%;
+    border-bottom: 1px solid #cbdcd960;
+}
+
+.explore-header h1 {
+    display: inline-block;
+    font-size: 4em;
+    color: #22afb4;
+}
+
+.explore-header p {
+    display: inline-block;
+    font-size: 1.2em;
+}
+
+.sort {
+    display: flex;
+    position: absolute;
+    width: 30%;
+    top: 45%;
+    left:75%;
+}
+
+.sort p {
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.explore-header button{
+    font-size: 1.2em;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.explore-header button:hover{
+    background-color: #f1356d;
+    color: #E4F9F5;
+}
+
+.explore-header button.active{
+    background-color: #f1356d;
+    color: #E4F9F5;
+}
+
+/*-----------------Filters------------------------*/
+
+.filters {
+    position: absolute;
+    top: 25%;
+    height: 65%;
+    width: 23%;
+    border-radius: 10px;
+    border-right: 1px solid #cbdcd98c;
+}
+
+.filters form{
+    padding: 60px 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+}
+
+.filters form label{
+    padding: 20px;
+    font-size: 1.3em;
+    color: #22cca4;
+}
+
+.filters form input, .filters form select{
+    padding: 5px;
+    position: absolute;
+    font-size: 1em;
+    left: 37%;
+    width: 45%;
+    border: 1px solid #40514E;
+    border-radius: 3px;
+}
+
+.filters form select {
+    background: none;
+    width: 47.5%;
+}
+
+.filters form input:focus, .filters form select:focus{
+    box-shadow: 0 0 1px 1px #22afb4;
+    outline: none;
+}
+
+.filters form button{
+    font-size: 1.5em;
+    padding: 7px;
+    width: 30%;
+    margin: 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filters form button:hover{
+    color:#E4F9F5;
+    background-color: #f1356d;
+}
+
+/*-----------------CARDS------------------------*/
+
+.cards-body {
+    position: absolute;
+    top:27%;
+    left: 27%;
+    max-width: 1300px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    height: 650px;
+    overflow-y: scroll;
+}
+
+.cards .event-preview{
+    width: 30%;
+    padding: 20px;
+}
+
+.cards .event-preview:hover{
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 10px #cbdcd9ac;
+}
+
+.cards .event-preview h3{
+    font-size: 2em;
+    color: #22cca4;
+}
+
+.cards .event-preview h5{
+    font-size: 1.1em;
+    font-weight: 500;
+    
+}
+
+.cards img {
+    width: 400px;
+    height: 300px;
+    border: 1px solid #40514E;
+    border-radius: 10px;
+}
+
+.cards .event-preview .genre-container h5, .cards .event-preview .genre-container div {
+    display: inline-block;
+}
+
+.cards .event-preview .genre p {
+    margin: 10px;
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: #f1356d;
+    color: #E4F9F5;
+    border-radius: 20px;
+}
+
+.cards::-webkit-scrollbar {
+    width: 10px;
+}
+
+.cards::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: #40514E;
+  border-radius: 10px;
+}
