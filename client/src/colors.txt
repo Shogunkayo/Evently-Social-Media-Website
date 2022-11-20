@@ -1,7 +1,0 @@
-Navbar - #11999E
-Light - Header - #E4F9F5
-Dark - Header - #40514E
-Hover - #f1356d
-Background - #ffffff
-Small Header - #22cca4
-Paragraph - #22afb4
