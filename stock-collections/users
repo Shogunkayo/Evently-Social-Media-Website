@@ -1,0 +1,87 @@
+[{
+  "_id": {
+    "$oid": "63879ba53fc298334748203d"
+  },
+  "user_name": "gautham",
+  "user_password": "$2b$10$XhkSakpiI7MbYj5mCK6qCOfY66TbkLrBvLQA83rHO7mAveNZGJrSG",
+  "user_email": "test@test.com",
+  "user_followers": [],
+  "user_following": [],
+  "user_posts": [
+    "6388408c4289fddd6a75b8b6",
+    "6388413b4289fddd6a75b8bd"
+  ],
+  "user_interested": [
+    "6388413b4289fddd6a75b8bd"
+  ],
+  "user_message_rooms": [],
+  "roles": [
+    "user"
+  ],
+  "user_bio": "Hello there! Welcome to my page",
+  "user_img": "1669872192286.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63879c053fc2983347482059"
+  },
+  "user_name": "ganesh",
+  "user_password": "$2b$10$pwpUJyG5prwxe0gg2yVa2u.AmAd7H75/Nc0NKmpZpH3trXKDKcc6W",
+  "user_email": "test@test.com",
+  "user_followers": [],
+  "user_following": [],
+  "user_posts": [],
+  "user_interested": [
+    "6388413b4289fddd6a75b8bd"
+  ],
+  "user_message_rooms": [],
+  "roles": [
+    "user"
+  ],
+  "user_bio": "Yes it is working",
+  "user_img": "1669871058432.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6388416e4289fddd6a75b8d8"
+  },
+  "user_name": "gagan",
+  "user_password": "$2b$10$gT838NDqbLOM3fH6WolXReb8.9OeeC5Y1k.AV29BEj3q4suPz0Mqe",
+  "user_email": "gagan@test.com",
+  "user_followers": [],
+  "user_following": [],
+  "user_posts": [],
+  "user_interested": [
+    "6388408c4289fddd6a75b8b6",
+    "6388413b4289fddd6a75b8bd"
+  ],
+  "user_message_rooms": [],
+  "roles": [
+    "user"
+  ],
+  "user_bio": " ",
+  "user_img": "default.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638843b94289fddd6a75b935"
+  },
+  "user_name": "pushpa",
+  "user_password": "$2b$10$MVYa8XEwa62UXTXMI9ahSuFCBPoOycb6ADLi9ckCUvYhoXGFDdEJm",
+  "user_email": "pushpag@pes.edu",
+  "user_followers": [],
+  "user_following": [],
+  "user_posts": [
+    "638844ed4289fddd6a75b974"
+  ],
+  "user_interested": [
+    "6388408c4289fddd6a75b8b6"
+  ],
+  "user_message_rooms": [],
+  "roles": [
+    "user"
+  ],
+  "user_bio": "Hello ",
+  "user_img": "1669874756399.jpg",
+  "__v": 0
+}]
