@@ -1,0 +1,13 @@
+Navbar{cyan} - #11999E
+Header{white} #E4F9F5
+Border{dark green} - #40514E
+Small Header{green} - #22cca4
+Small Header{blue} - #22afb4
+
+Border{lighter gray} - #cbdcd960
+Box-shadow{light grey} - #cbdcd9ac
+Buttons{red} - #f1356d
+Button active {green} - #22cca4;
+Button active hover {green} - #5ee2a4
+
+Background{dark green} - #0d5d6053
