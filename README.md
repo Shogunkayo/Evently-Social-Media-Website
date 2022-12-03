@@ -23,7 +23,7 @@ Evently is a social media website designed to promote events. We make it easier 
 
 - (OPTIONAL) Create a new database called 'evently' (or any name of your choice)
 
-- (OPTIONAL) Create the following collections: 'events', 'users' and 
+- (OPTIONAL) Create the following collections: 'events', 'users' and 'feedbacks'
 
 - (OPTIONAL) Import the respective stock collections by clicking on Add Data -> Import File -> Select the collections downloaded from stock-collection directory -> Select import file type as JSON
 
