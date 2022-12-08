@@ -45,6 +45,10 @@ const UserSchema = new Schema({
     user_img: {
         type: String,
         required: true
+    },
+    notifications: {
+        type: Array,
+        required: true
     }
 })
 

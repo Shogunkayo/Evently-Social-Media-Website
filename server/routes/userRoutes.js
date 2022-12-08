@@ -1,28 +1,8 @@
 import express from 'express';
-import bcrypt from 'bcrypt';
-import multer from 'multer';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 import User from '../models/user.js';
 
 const userRouter = express.Router();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-let imageName;
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null,  __dirname + '/user_profile/')
-    },
-    filename: (req, file, cb) => {
-        imageName = Date.now() + path.extname(file.originalname)
-        cb(null, imageName)
-    }
-})
-const upload = multer({storage:storage})
 
 userRouter.put('/user/:id', (req, res, next)=> {
     User.findByIdAndUpdate({_id: req.params.id}, req.body).then(
@@ -56,6 +36,26 @@ userRouter.delete('/user/:name/:id', (req, res, next)=>{
         res.send();
     })
 })
+
+userRouter.get('/user/notif/:id', (req, res, next)=>{
+    if(req.params.id === req.id){
+        User.findOne({_id: req.id}, {notifications: 1, _id: 0}).sort({'notifications': -1}).then((user)=>{
+            User.find().where('_id').in(user.notifications).select('user_name user_img').then((details)=>{
+                res.json({notifications:user.notifications, details: details})
+            })
+        })
+    }
+    else{
+        res.status(401).json({message: 'Unauthorized'})
+    }
+})
+
+userRouter.put('/user/notif/:id', (req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, {$push: {notifications: {_id: req.body._id, message: req.body.message, time: new Date()}}}).then(()=>{
+        res.json({message: 'Notification Added'})
+    })
+})
+
 
 userRouter.get('/profile/:id', (req, res, next)=> {
     User.findOne({_id: req.params.id}, {user_followers: 1, user_following: 1, _id: 1, user_name: 1}).then((user)=>{

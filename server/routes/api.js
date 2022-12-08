@@ -64,6 +64,7 @@ router.post('/signup', (req, res, next) => {
     user_request.roles = ['user'];
     user_request.user_bio = " ";
     user_request.user_img = "default.jpg"
+    user_request.notifications = []
     
     bcrypt.hash(user_request.user_password, 10, function(err, hash){
         user_request.user_password = hash;

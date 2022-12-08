@@ -135,6 +135,12 @@ const ProfilePage = () => {
         }).then((response)=>{
             response.json().then(()=>{
                 setFollowUpdate(true)
+
+                fetch(`http://localhost:4000/dash/user/notif/${userDetails._id}`,{
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+                    body: JSON.stringify({_id: currentUser._id, message: ' has started following you!'})
+                })
             })
         })
     }

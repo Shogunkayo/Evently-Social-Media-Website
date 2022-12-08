@@ -7,6 +7,7 @@ import SignUp from "./signup";
 import Login from "./login";
 import CreateEvent from "./create_event";
 import ProfilePage from "./profile";
+import Notifications from "./notifications";
 
 function App() {
     return(
