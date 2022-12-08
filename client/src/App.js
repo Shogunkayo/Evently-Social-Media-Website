@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useSelector } from 'react-redux';
 
 import Explore from "./explore";
 import Home from './home';
@@ -8,6 +7,7 @@ import SignUp from "./signup";
 import Login from "./login";
 import CreateEvent from "./create_event";
 import ProfilePage from "./profile";
+import Notifications from "./notifications";
 
 function App() {
     return(

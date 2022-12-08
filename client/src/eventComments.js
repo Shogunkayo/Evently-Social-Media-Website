@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import { store } from './redux/store';
+
 
 const EventComments = ({comments, inProfile, setPopup, handleRerender}) => {
 

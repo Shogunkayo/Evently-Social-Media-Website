@@ -14,11 +14,11 @@
     font-size: 2.5em;
 }
 
-.navbar .links, .logout {
+.navbar .links, .logout, .notiffs  {
     margin-left: auto;
 }
 
-.navbar a, .logout {
+.navbar a, .logout, .notiffs {
     font-weight: 500;
     font-size: 1.2em;
     margin-left: 16px;
@@ -36,13 +36,13 @@
     color: #f1356d;
 }
 
-.logout {
+.logout, .notiffs {
     text-decoration: none;
     background: none;
     border-style: none;
 }
 
-.logout:hover {
+.logout:hover, .notiffs:hover {
     cursor: pointer;
     color: #f1356d;
 }
@@ -83,4 +83,83 @@
 
 .navsearch button:hover{
     box-shadow: 0 0 2px 2px #22afb4;
+}
+
+/*------------------Notifications--------------------*/
+
+.notif-popup-outer {
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.notif-popup-body {
+    position: relative;
+    left: 60%;
+    top: 80px;
+    padding: 32px;
+    width: 20%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    max-width: 450px;
+
+}
+
+.notif-popup-body > div {
+    margin-top: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notif-popup-body > div::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notif-popup-body > div::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+.notif-popup-body > div::-webkit-scrollbar-thumb {
+  background: #40514E;
+  border-radius: 10px;
+}
+
+
+.notif-popup-body .close-btn {
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.notif {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #cbdcd960;
+}
+
+.notif img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.notif p {
+    font-size: 1.2rem;
+    color: #40514E;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.notif span {
+    color: #11999E;
+    cursor: pointer;
 }

@@ -115,7 +115,7 @@
     display: flex;
     flex-wrap: wrap;
     height: 70vh;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .cards .event-preview{
@@ -318,7 +318,7 @@
     padding: 10px 13px;
     width: 93%;
     height: 320px;
-    overflow-y: scroll;
+    overflow-y: auto;
     word-wrap: break-word;
     background-color: #e3e9e850;
     border-radius: 10px;
@@ -395,7 +395,7 @@
     margin-top: 20px;
     display: flex;
     height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 10px;
     word-wrap: break-word;
     display: flex;
