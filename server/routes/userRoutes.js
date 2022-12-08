@@ -74,6 +74,31 @@ userRouter.put('/profile/:id', (req, res, next)=> {
     }
 })
 
+userRouter.put('/profile/follow/:uid/:fid', (req, res, next) => {
+    if(req.params.uid == req.id){
+        if(req.body.operation == 0){
+            User.findByIdAndUpdate(req.params.uid, {$pull: {user_following: req.params.fid}}).then(()=>{
+                User.findByIdAndUpdate(req.params.fid, {$pull: {user_followers: req.params.uid}}).then(()=>{
+                    res.json({message: 'Unfollowed Successfully'})
+                })
+            })
+        }
+        else if(req.body.operation == 1) {
+            User.findByIdAndUpdate(req.params.uid, {$push: {user_following: req.params.fid}}).then(()=>{
+                User.findByIdAndUpdate(req.params.fid, {$push: {user_followers: req.params.uid}}).then(()=>{
+                    res.json({message: 'Followed Successfully'})
+                })
+            })
+        }
+        else{
+            res.status(400).json({message: 'Invalid Operation'})
+        }
+    }
+    else{
+        res.status(401).json({message: 'Unauthorized'})
+    }
+})
+
 userRouter.post('/profile/:id', (req, res, next)=>{
     if(req.params.id === req.id){
         User.findOne({_id: req.params.id}).select('-user_message_rooms').then((user)=>{

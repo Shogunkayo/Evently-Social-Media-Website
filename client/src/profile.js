@@ -13,7 +13,6 @@ const ProfilePage = () => {
     const [isUpdating, setIsUpdating] = useState(false);
     const [userDetails, setUserDetails] = useState(null);
     const [currentUser, setCurrentUser] = useState(null);
-    const [userImg, setUserImg] = useState(null);
     const [isUserFollowing, setIsUserFollowing] = useState(false);
     const [userEvents, setUserEvents] = useState([]);
     const [interestedEvents, setInterestedEvents] = useState([]);
@@ -21,9 +20,8 @@ const ProfilePage = () => {
     const [showInterested, setShowInterested] = useState(false);
     const [rerender, setRerender]  = useState();
     const [changeUserBio, setChangeUserBio] = useState('');
-
+    const [followUpdate, setFollowUpdate] = useState(false);
     const [user_image, setImage] = useState(null);
-    const [isImage, setIsImage] = useState(true);
 
     useEffect(()=>{
 
@@ -35,7 +33,6 @@ const ProfilePage = () => {
             response.json().then((body)=>{
                 setIsSameUser(body.isSame)
                 setUserDetails(body.user)
-                setUserImg(body.user.user_img)
                 console.log(body)
                 fetch(`http://localhost:4000/dash/event/create_time?user_id=${body.user._id}`, {
                     method: 'GET',
@@ -68,7 +65,6 @@ const ProfilePage = () => {
                 response.json().then((body)=>{
                     setIsSameUser(body.isSame)
                     setUserDetails(body.user)
-                    setUserImg(body.user.user_img)
                     fetch(`http://localhost:4000/dash/event/create_time?user_id=${body.user._id}`, {
                         method: 'GET',
                         headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken}
@@ -89,8 +85,7 @@ const ProfilePage = () => {
                 })
             })
             setRerender(false);
-        }
-        
+        }        
     }, [rerender])
 
     useEffect(()=>{
@@ -107,16 +102,57 @@ const ProfilePage = () => {
     }, [isSameUser])
 
     useEffect(()=>{
-        if(currentUser){
-            if(currentUser.user_following.includes(userDetails.user_name)){
+        if(currentUser || rerender){
+            if(currentUser.user_following.includes(userDetails._id)){
                 setIsUserFollowing(true)
             }
+            else{
+                setIsUserFollowing(false)
+            }
         }
-    }, [currentUser])
+    }, [currentUser, rerender])
+
+    useEffect(()=>{
+        if(followUpdate){
+            fetch(`http://localhost:4000/dash/profile/${store.getState().auth.user.user_id}`,{
+                method: 'GET',
+                headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken}
+            }).then((response)=>{
+                response.json().then((body)=>{
+                    setCurrentUser(body)
+                })
+            })
+            setFollowUpdate(false)
+            setRerender(true)
+        }
+    }, [followUpdate])
+
+    const handleFollow = () => {
+        fetch(`http://localhost:4000/dash/profile/follow/${currentUser._id}/${userDetails._id}`,{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+            body: JSON.stringify({operation: 1})
+        }).then((response)=>{
+            response.json().then(()=>{
+                setFollowUpdate(true)
+            })
+        })
+    }
+
+    const handleUnfollow = () =>{
+        fetch(`http://localhost:4000/dash/profile/follow/${currentUser._id}/${userDetails._id}`,{
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+            body: JSON.stringify({operation: 0})
+        }).then((response)=>{
+            response.json().then(()=>{
+                setFollowUpdate(true)
+            })
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsImage(true)
         let userBio = changeUserBio
         if(!userBio){
             if(currentUser && currentUser.user_bio){
@@ -168,7 +204,6 @@ const ProfilePage = () => {
                                             onChange = {(e)=>{
                                                 if(e.target.files[0] && (e.target.files[0].type === 'image/png' || e.target.files[0].type === 'image/jpeg')){
                                                     setImage(e.target.files[0]);
-                                                    setIsImage(true);
                                                 }
                                                 else{
                                                     setImage(null);
@@ -190,8 +225,8 @@ const ProfilePage = () => {
                             <p className='profile-username'>{userDetails.user_name}</p>
                             {isSameUser && !isUpdating && <button className='profile-update' onClick={()=>{setIsUpdating(true)}}>Edit Profile</button>}
                             {isSameUser && isUpdating && <button className='profile-update-cancel' onClick={()=>{setIsUpdating(false)}}>Cancel</button>}
-                            {!isSameUser && currentUser && !isUserFollowing && <button className='profile-follow'>Follow</button>}
-                            {!isSameUser && currentUser && isUserFollowing && <button className='profile-unfollow'>Unfollow</button>}
+                            {!isSameUser && currentUser && !isUserFollowing && <button className='profile-follow' onClick={handleFollow}>Follow</button>}
+                            {!isSameUser && currentUser && isUserFollowing && <button className='profile-unfollow' onClick={handleUnfollow}>Unfollow</button>}
                             {!isSameUser && <button className='profile-message'>Message</button>}
                         </div>
                         <div className='profile-user-details-2'>
