@@ -191,7 +191,7 @@ const ProfilePage = () => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar inProfile={isSameUser}  handleRerender ={setRerender} />
             {userDetails &&
             <div className='profile-outer'>
                 <div className='profile-user-top'>

@@ -6,7 +6,7 @@ import { store } from './redux/store.js'
 import { logout, reset } from './features/auth/authSlice'; 
 import Notifications from './notifications.js';
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -37,6 +37,14 @@ const Navbar = () => {
         }
     }, [notifPopup])
 
+    const handleRedirect = (e) => {
+        setNotifPopup(false)
+        if(props.handleRerender){
+            props?.handleRerender(true);
+        }
+        navigate(`/profile/${e.target.getAttribute('id')}`)
+    }
+
     return (
         <div className='navbar'>
             <h1>Evently</h1>
@@ -59,7 +67,7 @@ const Navbar = () => {
                 {notifications && notifications.notifications.map((notification, i)=>(
                     <div className='notif' key={i}>
                         <img alt='profile' src={`http://localhost:4000/api/image/user/${notifications.details[i].user_img}`}></img>
-                        <p>{notifications.details[i].user_name} {notification.message}</p>
+                        <p><span id={notification._id} onClick={handleRedirect}>{notifications.details[i].user_name}</span> {notification.message}</p>
                     </div>
                 ))}
             </Notifications>
