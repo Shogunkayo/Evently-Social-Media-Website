@@ -144,7 +144,8 @@
     background-color: #f1356d;
     color: #E4F9F5;
     position: absolute;
-    top: 570px;
+    top: 565px;
+    height: 50px;
 }
 
 .profile-user-details-3 {

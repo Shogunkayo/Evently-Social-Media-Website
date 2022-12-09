@@ -353,7 +353,7 @@
 .popup-event-right {
     padding: 20px 10px;
     height: 400px;
-    width: 35%;
+    width: 40%;
 }
 
 .comment-no {
@@ -436,7 +436,7 @@
     padding: 7px 20px;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 260px;
     word-wrap: break-word;
     margin-top: 15px;
 }
@@ -463,3 +463,20 @@
     padding: 20px 10px;
 }
 
+.comment-delete {
+    margin: auto 0;
+}
+
+.comment-delete button {
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.comment-delete button:hover {
+    cursor: pointer;
+    color:#E4F9F5;
+    background-color: #f1356d;
+}
