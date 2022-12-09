@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 
 import User from '../models/user.js';
 
@@ -39,10 +39,14 @@ userRouter.delete('/user/:name/:id', (req, res, next)=>{
 
 userRouter.get('/user/notif/:id', (req, res, next)=>{
     if(req.params.id === req.id){
-        User.findOne({_id: req.id}, {notifications: 1, _id: 0}).sort({'notifications': -1}).then((user)=>{
-            User.find().where('_id').in(user.notifications).select('user_name user_img').then((details)=>{
-                res.json({notifications:user.notifications, details: details})
-            })
+        User.findOne({_id: req.id}, {notifications: 1, _id: 0}).sort({'notifications.time': -1}).then(async (user)=>{
+            user.notifications.reverse()
+            let details = []
+            for(let i=0; i<user.notifications.length; i++){
+                details.push(await User.findOne({_id: user.notifications[i]._id}).select('user_name user_img'))
+            }
+
+            res.json({notifications:user.notifications, details: details})
         })
     }
     else{
@@ -56,6 +60,16 @@ userRouter.put('/user/notif/:id', (req, res, next) => {
     })
 })
 
+userRouter.post('/user/notif/:id', (req, res, next) => {
+    if(req.params.id == req.id){
+        User.findByIdAndUpdate(req.params.id, {$set: {notifications: []}}).then(()=>{
+            res.json({message: 'Notifications Cleared'})
+        })
+    }
+    else {
+        res.status(401).json({message: 'Unauthorized'})
+    }
+})
 
 userRouter.get('/profile/:id', (req, res, next)=> {
     User.findOne({_id: req.params.id}, {user_followers: 1, user_following: 1, _id: 1, user_name: 1}).then((user)=>{

@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import { store } from "./redux/store";
 
-
-const EventComments = ({comments, inProfile, setPopup, handleRerender}) => {
+const EventComments = ({comments, inProfile, setPopup, handleRerender, card}) => {
 
     const navigate = useNavigate()
 
@@ -12,6 +12,20 @@ const EventComments = ({comments, inProfile, setPopup, handleRerender}) => {
             handleRerender(true);
         }
         navigate(`/profile/${e.target.getAttribute('id')}`)
+    }
+
+    const handleDelete = (e) => {
+        console.log(e.target.getAttribute('id'))
+        fetch(`http://localhost:4000/dash/event/comment/${store.getState().auth.user.user_id}/${e.target.getAttribute('id')}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+            body: JSON.stringify({event_id: card._id})
+        }).then((response)=>{
+            response.json().then((body)=>{
+                console.log(body)
+            })
+            setPopup(false);
+        })
     }
 
     return (
@@ -25,6 +39,9 @@ const EventComments = ({comments, inProfile, setPopup, handleRerender}) => {
                         <h4 onClick={handleProfileRedirect} id= {comment.user_id}>{comment.user_name}</h4>
                         <p>{comment.comment}</p>
                     </div>
+                    {comment.user_id == store.getState().auth.user.user_id && (<div className='comment-delete'>
+                        <button onClick={handleDelete} id={comment.comment_id}>Delete</button>
+                    </div>)}
                 </div>
             ))}
         

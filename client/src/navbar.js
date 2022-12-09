@@ -38,11 +38,22 @@ const Navbar = (props) => {
     }, [notifPopup])
 
     const handleRedirect = (e) => {
+        console.log(e.target.getAttribute('id'))
         setNotifPopup(false)
         if(props.handleRerender){
             props?.handleRerender(true);
         }
         navigate(`/profile/${e.target.getAttribute('id')}`)
+    }
+
+    const handleClear = () => {
+        fetch(`http://localhost:4000/dash/user/notif/${user.user_id}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+            body: JSON.stringify({id: user.user_id})
+        }).then(()=>{
+            setNotifPopup(false)
+        })
     }
 
     return (
@@ -64,12 +75,18 @@ const Navbar = (props) => {
             </div>
 
             <Notifications trigger={notifPopup} setTrigger={setNotifPopup}>
+                <button onClick={handleClear} className='notif-clear'>Clear</button>
                 {notifications && notifications.notifications.map((notification, i)=>(
                     <div className='notif' key={i}>
                         <img alt='profile' src={`http://localhost:4000/api/image/user/${notifications.details[i].user_img}`}></img>
-                        <p><span id={notification._id} onClick={handleRedirect}>{notifications.details[i].user_name}</span> {notification.message}</p>
+                        <p><span id={notifications.details[i]._id} onClick={handleRedirect}>{notifications.details[i].user_name}</span> {notification.message}</p>
                     </div>
                 ))}
+                {(!notifications || notifications.notifications.length == 0) &&(
+                    <div className='notif-empty'>
+                        <h4>You don't have any notifications!</h4>
+                    </div>
+                )}
             </Notifications>
 
         </div>

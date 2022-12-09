@@ -92,7 +92,7 @@
     top: -10px;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -101,7 +101,7 @@
     left: 60%;
     top: 80px;
     padding: 32px;
-    width: 20%;
+    width: 25%;
     background-color: #FFFFFF;
     border-radius: 20px;
     max-width: 450px;
@@ -157,9 +157,39 @@
     color: #40514E;
     margin-left: 10px;
     margin-top: 15px;
+    word-break: break-all;
+    margin-right: 10px;
 }
 
 .notif span {
     color: #11999E;
     cursor: pointer;
+}
+
+.notif-empty {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.notif-empty h4 {
+    color: #40514E;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.notif-clear {
+    position: absolute;
+    top: 17px;
+    left: 30px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.notif-clear:hover{
+    cursor: pointer;
+    color:#E4F9F5;
+    background-color: #f1356d;
 }

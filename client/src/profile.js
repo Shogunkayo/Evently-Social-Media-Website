@@ -103,7 +103,7 @@ const ProfilePage = () => {
 
     useEffect(()=>{
         if(currentUser || rerender){
-            if(currentUser.user_following.includes(userDetails._id)){
+            if(currentUser && currentUser.user_following.includes(userDetails._id)){
                 setIsUserFollowing(true)
             }
             else{

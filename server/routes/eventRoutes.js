@@ -86,4 +86,15 @@ eventRouter.post('/event/delete/:userid/:eventid', (req, res, next) => {
     }
 })
 
+eventRouter.post('/event/comment/:uid/:cid', (req, res, next)=> {
+    if(req.params.uid == req.id){
+        Event.findByIdAndUpdate(req.body.event_id, {$pull: {event_comments: {comment_id: req.params.cid}}}).then((event)=>{
+            res.json({message: 'Comment Deleted', cid: req.params.cid, eid: event})
+        })
+    }
+    else{
+        res.status(401).json({message: 'Unauthorized'})
+    }
+})
+
 export default eventRouter

@@ -156,11 +156,19 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
         }
 
         setUserInterestedChanged(true)
-
+        console.log(card)
         fetch(`http://localhost:4000/dash/event/${card._id}`,{
             method: 'PUT',
             headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
             body: JSON.stringify({event_interested: card.event_interested, event_likes: card.event_likes})
+        }).then(()=>{
+            if(user_id !== e.target.getAttribute('id')){
+                fetch(`http://localhost:4000/dash/user/notif/${e.target.getAttribute('id')}`,{
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+                    body: JSON.stringify({_id: user_id, message: ` liked your post: ${card.event_name}`})
+                })   
+            }
         })
 
         if(inProfile){
@@ -169,8 +177,8 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
     }
 
     const handleCommentSubmit = (e) => {
-        e.preventDefault();
-        setEventComment('');
+        e.preventDefault()
+        
         
         fetch(`http://localhost:4000/dash/user/profileImg/${user_id}`,{
             method: 'GET',
@@ -185,7 +193,15 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
                     body: JSON.stringify(event_comments)
                 }).then(()=>{
                     setCommentSent(true);
-                    
+                if(user_id !== e.target.getAttribute('id')){
+                    fetch(`http://localhost:4000/dash/user/notif/${e.target.getAttribute('id')}`,{
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+                        body: JSON.stringify({_id: user_id, message: ` commented on your post ${card.event_name}: ${eventComment}`})
+                    })   
+                }
+                }).then(()=>{
+                    setEventComment('')
                 })
             })
         })
@@ -290,7 +306,7 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
                             </div>
 
                             <div className='popup-event-like'>
-                                {!userHasLiked && <img className='event-like-btn' src="https://img.icons8.com/wired/64/null/hearts.png" onClick={handleLike} alt='like'/>}
+                                {!userHasLiked && <img className='event-like-btn' src="https://img.icons8.com/wired/64/null/hearts.png" onClick={handleLike}  id={card.user_id} alt='like'/>}
                                 {userHasLiked && <img className='event-like-btn' src="https://img.icons8.com/dusk/64/null/hearts.png" onClick={handleLike} alt='unlike'/>}
                                 <p className='event-likes-no'>{card.event_likes}</p>
                             </div>
@@ -299,16 +315,17 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
                         <div className='popup-event-right'>
                             <div className='popup-event-comment-head'>
                                 <p className='comment-no'>{comments.length} Comments</p>
-                                <form onSubmit={handleCommentSubmit}>
+                                <form onSubmit={handleCommentSubmit} id={card.user_id}>
                                     <div>
                                         <input 
                                             placeholder='Add a comment...'
                                             onChange={(e)=> {setEventComment(e.target.value)}}
                                             required
                                             maxLength={100}
+                                            value= {eventComment}
                                         ></input>
                                     </div>
-                                    <button type='submit'>Comment</button>
+                                    <button type='submit' id={card.user_id}>Comment</button>
                                     <button type='reset' onClick={()=>{setCommentSent(false)}}>Clear</button>
                                 </form>
                             </div>
@@ -316,7 +333,7 @@ const Cards = ({cards, inProfile, currentUser, handleRerender, sameUser, notInLi
                             {
                                 comments.length ?  (
                                     <div className='comments'>
-                                        <EventComments comments={comments} inProfile={inProfile} handleRerender={handleRerender} setPopup={setPopup}/>
+                                        <EventComments card={card} comments={comments} inProfile={inProfile} handleRerender={handleRerender} setPopup={setPopup}/>
                                     </div>
                                 ) :
                                 
