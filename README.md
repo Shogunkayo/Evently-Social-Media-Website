@@ -8,12 +8,13 @@ Evently is a social media website designed to promote events. We make it easier 
 - JWT Authentication: All the inner endpoints are secured and require JWT access token
 - Create Events page: Create your event by providing the necessary details. Upload your own cover photo or use one of our stock photos
 - Explore page: Search for events created by other users, with sort and filter options. Comment on posts to interact with the community. Like posts to show that you are interested. Liked posts are saved in your profile page
-- Profile page: Update your profile photo and your user bio. See all the events you have created as well as the events you have saved.
+- Profile page: Update your profile photo and your user bio. See all the events you have created as well as the events you have saved. Follow other users to get their posts on your dashboard.
+- Notifications: Get notifications when other users follow you, comment on your posts or like your posts.
 
 ### Pending
 - Implement JWT refresh tokens to enhance security
 - Update the navigation bar and make the search bar functional
-- Enable users to follow each other
+- ~~Enable users to follow each other~~ &nbsp; :heavy_check_mark:
 - Create a dashboard page
 - Add a private messaging feature
 
