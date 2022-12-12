@@ -13,7 +13,7 @@ Evently is a social media website designed to promote events. We make it easier 
 
 ### Pending
 - Implement JWT refresh tokens to enhance security
-- Update the navigation bar and make the search bar functional
+- ~~Update the navigation bar and make it look modern~~ &nbsp; :heavy_check_mark:
 - ~~Enable users to follow each other~~ &nbsp; :heavy_check_mark:
 - Create a dashboard page
 - Add a private messaging feature
