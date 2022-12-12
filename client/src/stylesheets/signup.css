@@ -91,8 +91,7 @@
 .homenav-signup {
   display: flex;
   position: fixed;
-  width: 97%;
-  padding: 10px 30px;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   background-color: #11999E;
@@ -101,12 +100,12 @@
 }
 
 .homenav-signup h1 {
-font-size: 2.5em;
+    font-size: 3rem;
+    padding-left: 30px;
+    padding-bottom: 10px;
 }
 
-.homenav-signup .links {
-margin-left: auto;
-}
+
 
 .homenav-signup a {
 font-weight: 500;

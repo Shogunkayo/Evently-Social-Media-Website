@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import FormInput from './signup_input';
 import { login } from "./features/auth/authSlice";
 
+import home_btn from './images/home.png'
+import signup_btn from './images/signup.png'
+import login_btn from './images/login.png'
 
 export default function Login() {
 
@@ -83,12 +86,11 @@ export default function Login() {
         <div className='homenav-signup'>
             <h1>Evently</h1>
             <div className='links'> 
-                <a href='/'>Home</a>
-                <a href='/signup'>Sign-Up</a>
-                <a href='/login'>Login</a>
+                <a href='/'><div className='links-first'><img src={home_btn} alt='navbar'></img></div></a>
+                <a href='/signup'><div className='links-signup'><img src={signup_btn} alt='navbar'></img></div></a>
+                <a href='/login'><div className='links-login'><img src={login_btn} alt='navbar'></img></div></a>
             </div>
         </div>
-
 
         <form onSubmit={handleSubmit}>
             <h1>Evently</h1>

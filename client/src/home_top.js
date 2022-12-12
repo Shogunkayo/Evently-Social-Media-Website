@@ -1,27 +1,44 @@
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-scroll';
+
+import { logout, reset } from './features/auth/authSlice'; 
+
+import about_btn from './images/about.png'
+import home_btn from './images/home.png'
+import logout_btn from './images/logout.png'
+import feedback_btn from './images/feedback.png'
+import signup_btn from './images/signup.png'
+import login_btn from './images/login.png'
 
 const HomeTop = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const {user} = useSelector((state)=> state.auth)
 
     const handleClick = () => {
         navigate('/signup')
     }
 
+    const onLogout = () => {
+        dispatch(logout())
+        dispatch(reset())
+        navigate('/')
+    }
+
     return ( 
         <div className='hometop' id='hometop'>
             
-            <div className='homenav'>
+            <div className='navbar'>
                 <h1>Evently</h1>
                 <div className='links'> 
-                    <Link to='hometop' spy={true} smooth={true} offset={0} duration={500}>Home</Link>
-                    <Link to='homebottom' spy={true} smooth={true} offset={-50} duration={500}>About Us</Link>
-                    <Link to='feedback' spy={true} smooth={true} offset={-50} duration={500}>Feedback</Link>
-                    {!user && <a href='/signup'>Sign-Up</a>}
-                    {!user &&<a href='/login'>Login</a>}
+                    <Link to='hometop' spy={true} smooth={true} offset={0} duration={500}><div className='links-first'><img src={home_btn} alt='navbar'></img></div></Link>
+                    <Link to='homebottom' spy={true} smooth={true} offset={-50} duration={500}><div className='links-about'><img src={about_btn} alt='navbar'></img></div></Link>
+                    <Link to='feedback' spy={true} smooth={true} offset={-50} duration={500}><div className='links-feedback'><img src={feedback_btn} alt='navbar'></img></div></Link>
+                    {!user && <a href='/signup'><div className='links-signup'><img src={signup_btn} alt='navbar'></img></div></a>}
+                    {!user &&<a href='/login'><div className='links-login'><img src={login_btn} alt='navbar'></img></div></a>}
+                    {user && <div className='links-last'  onClick={onLogout}><button className='logout' onClick={onLogout}><img src={logout_btn} alt='navbar'></img></button></div>}
                 </div>
             </div>
 
