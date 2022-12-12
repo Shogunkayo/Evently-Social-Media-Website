@@ -6,6 +6,14 @@ import { store } from './redux/store.js'
 import { logout, reset } from './features/auth/authSlice'; 
 import Notifications from './notifications.js';
 
+
+import create_btn from './images/create.png'
+import logout_btn from './images/logout.png'
+import profile_btn from './images/profile.png'
+import home_btn from './images/home.png'
+import explore_btn from './images/explore.png'
+import bell_btn from './images/notification.png'
+
 const Navbar = (props) => {
 
     const navigate = useNavigate();
@@ -59,19 +67,13 @@ const Navbar = (props) => {
     return (
         <div className='navbar'>
             <h1>Evently</h1>
-            <form className='navsearch'>
-                <input type='text' placeholder='Search...'></input>
-                <button type='submit'>Search</button>
-            </form>
             <div className='links'> 
-                <a href='/'>Home</a>
-                <a href='/'>Dashboard</a>
-                <a href='/explore'>Explore</a>
-                <a href='/create'>Create Event</a>
-                <button className='notiffs' onClick={()=>{setNotifPopup(true)}}>Notifications</button>
-                <a href='/'>Messages</a>
-                <a href= {`/profile/${store.getState().auth.user.user_id}`}>Profile</a>
-                <button className='logout' onClick={onLogout}>Logout</button>
+                <a href='/'><div className='links-first'><img src={home_btn} alt='navbar'></img></div></a>
+                <a href='/explore'><div className='links-second'><img src={explore_btn} alt='navbar'></img></div></a>
+                <a href='/create'><div className='links-third'><img src={create_btn} alt='navbar'></img></div></a>
+                <div className='links-fourth' onClick={()=>{setNotifPopup(true)}}><button className='notiffs' onClick={()=>{setNotifPopup(true)}}><img src={bell_btn} alt='navbar'></img></button></div>
+                <a href= {`/profile/${store.getState().auth.user.user_id}`}><div className='links-fifth'><img src={profile_btn} alt='navbar'></img></div></a>
+                <div className='links-last'  onClick={onLogout}><button className='logout' onClick={onLogout}><img src={logout_btn} alt='navbar'></img></button></div>
             </div>
 
             <Notifications trigger={notifPopup} setTrigger={setNotifPopup}>

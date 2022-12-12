@@ -2,8 +2,7 @@
     z-index: 1;
     display: flex;
     position: fixed;
-    width: 97%;
-    padding: 10px 30px;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: #11999E;
@@ -11,11 +10,9 @@
 }
 
 .navbar h1 {
-    font-size: 2.5em;
-}
-
-.navbar .links, .logout, .notiffs  {
-    margin-left: auto;
+    font-size: 3rem;
+    padding-left: 30px;
+    padding-bottom: 10px;
 }
 
 .navbar a, .logout, .notiffs {
@@ -27,14 +24,6 @@
     color: #E4F9F5;
 }
 
-.navbar a:active {
-    color: #f1356d;
-    border-bottom: 2px solid #22afb4;
-}
-
-.navbar a:hover {
-    color: #f1356d;
-}
 
 .logout, .notiffs {
     text-decoration: none;
@@ -44,46 +33,125 @@
 
 .logout:hover, .notiffs:hover {
     cursor: pointer;
-    color: #f1356d;
 }
 
-.navsearch {
+.links {
     display: flex;
-    position: absolute;
-    top: 20%;
-    left: 15%;
-    padding: 2px 20px;
+    align-items: center;
+    background-color: #0d5d6053;
+    border-radius: 10px;
+    width: 40%;
+    justify-content:space-evenly;
 }
 
-.navsearch input {
-    padding: 5px 10px;
-    border: 1px solid #40514E;
-    border-radius: 3px;
-    font-size: 1.2em;
-    width: 600px;
+.links img {
+    width: 50px;
+    height: 50px;
 }
 
-.navsearch button {
-    text-indent: -999px;
-    overflow: hidden;
-    width: 40px;
-    padding: 0;
-    margin: 0;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
-    background-color: rgba(240, 248, 255, 0.629);
+.links > div {
+    height:60px;
+    padding-right: 10px;
+}
+
+.links > a:hover, .links > div:hover {
+    background-color: #E4F9F5;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-.navsearch input:focus{
-    box-shadow: 0 0 3px 3px #22afb4;
-    outline: none;
+.links-first:hover::after {
+    content: 'Home';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 10px;
 }
 
-.navsearch button:hover{
-    box-shadow: 0 0 2px 2px #22afb4;
+.links-second:hover::after {
+    content: 'Explore';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 10px;
 }
+.links-third:hover::after {
+    content: 'Post';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 10px;
+}
+.links-fourth:hover::after {
+    content: 'Notifications';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
+.links-fifth:hover::after {
+    content: 'Profile';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 12px;
+}
+
+.links-last:hover::after {
+    content: 'Logout';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
+.links-fourth, .links-last {
+    margin-bottom: 10px;
+}
+
+.links-about:hover::after {
+    content: 'About';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
+.links-feedback:hover::after {
+    content: 'Feedback';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
+.links-signup:hover::after {
+    content: 'Sign-Up';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
+.links-login:hover::after {
+    content: 'Login';
+    font-weight: 500;
+    color: #11999E;
+    font-size: 1.5rem;
+    position: relative;
+    bottom: 15px;
+}
+
 
 /*------------------Notifications--------------------*/
 

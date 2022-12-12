@@ -27,45 +27,6 @@ body::-webkit-scrollbar-thumb {
     overflow-y: hidden;
 }
 
-.homenav {
-    display: flex;
-    position: fixed;
-    width: 97%;
-    padding: 10px 30px;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #11999E;
-    color: #E4F9F5;
-    z-index: 1;
-}
-
-.homenav h1 {
-    font-size: 2.5em;
-}
-
-.homenav .links {
-    margin-left: auto;
-}
-
-.homenav a {
-    font-weight: 500;
-    font-size: 1.2em;
-    margin-left: 16px;
-    text-decoration: none;
-    padding: 6px;
-    color: #E4F9F5;
-    cursor: pointer;
-}
-
-.homenav a:active {
-    color: #f1356d;
-    border-bottom: 2px solid #22afb4;
-}
-
-.homenav a:hover {
-    color: #f1356d;
-}
-
 .homebody {
     display: flex;
     justify-content: center;
