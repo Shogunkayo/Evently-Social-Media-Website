@@ -8,10 +8,7 @@ import { store } from './redux/store';
 
 import './stylesheets/home.css';
 import './stylesheets/navbar.css';
-import './stylesheets/explore.css';
 import './stylesheets/signup.css';
-import './stylesheets/create.css'
-import './stylesheets/profile.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

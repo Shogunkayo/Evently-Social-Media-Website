@@ -5,6 +5,8 @@ import { store } from './redux/store.js'
 import Navbar from './navbar.js';
 import Cards from './cards.js';
 
+import './stylesheets/profile.css'
+
 const ProfilePage = () => {
     
     const profileID = useParams().handle
