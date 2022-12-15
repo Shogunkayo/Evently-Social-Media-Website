@@ -7,7 +7,7 @@ import SignUp from "./signup";
 import Login from "./login";
 import CreateEvent from "./create_event";
 import ProfilePage from "./profile";
-import Notifications from "./notifications";
+import Message from "./messageBody";
 
 function App() {
     return(
@@ -19,6 +19,7 @@ function App() {
             <Route path="/explore" element={<Explore />}/>
             <Route path="/create" element={<CreateEvent />}/>
             <Route path="/profile/:handle" element={<ProfilePage />}/>
+            <Route path='/message' element={<Message />}/>
         </Routes>
     </div>
   );

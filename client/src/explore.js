@@ -7,6 +7,7 @@ import Filter from './filter';
 import Navbar from './navbar';
 import { store } from './redux/store.js'
 
+import './stylesheets/explore.css';
 import search_empty from './images/empty_search.jpg'
 
 const Explore = () => {

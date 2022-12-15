@@ -7,6 +7,9 @@ import { store } from './redux/store.js'
 import Navbar from './navbar';
 import ImgPopup from './stock_img.js';
 
+import './stylesheets/create.css'
+
+
 const CreateEvent = () => {
 
     const navigate = useNavigate();
