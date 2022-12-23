@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const messageRoomSchema = new Schema ({
     _id_sender: {
-        type: ObjectId,
+        type: String,
         required: [true, "Sender id required"]
     },
     
@@ -13,7 +13,7 @@ const messageRoomSchema = new Schema ({
     },
     
     _id_reciever: {
-        type: ObjectId,
+        type: String,
         required: [true, "Reciever id required"]
     },
 
@@ -22,15 +22,10 @@ const messageRoomSchema = new Schema ({
         required: [true, "Reciever name required"]
     },
 
-    messages_sent: {
+    messages: {
         type: Array,
         required: [true, "Messages sent is required"]
    },
-
-   messages_recieved: {
-        type: Array,
-        required: [true, "Messages recieved is required"]
-   }
 })
 
 const MessageRoom = mongoose.model('message', messageRoomSchema)
