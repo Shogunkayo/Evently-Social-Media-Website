@@ -12,7 +12,8 @@
     margin-top: 100px;
     margin-right: 20px;
     width: 600px;
-    height: 850px;
+    height: 85vh;
+    max-height: 1000px;
     background-color: #e3f5f2;
     display: flex;
     flex-direction: column;
@@ -53,6 +54,7 @@
     padding: 20px;
     border-bottom: 1px solid #cbdcd960;
     width: 90%;
+    cursor: pointer;
 }
 
 .message-left > div:hover, .message-left-current {
@@ -78,7 +80,8 @@
 .message-right {
     margin-top: 100px;
     width: 900px;
-    height: 850px;
+    height: 85vh;
+    max-height: 1000px;
     background-color: #E4F9F5;
     border-radius: 10px;
     position: relative;
@@ -99,4 +102,118 @@
 .message-right-banner p {
     font-size: 2rem;
     text-align: center;
+}
+
+.message-right-header {
+    display: flex;
+    background-color: #22cca462;
+}
+
+.message-right-header h4 {
+    cursor: pointer;
+    font-size: 2rem;
+    color: #11999E;
+    margin:auto 0;
+}
+
+.message-right-header img {
+    padding: 10px 20px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.message-right-footer {
+    position: absolute;
+    bottom: 0px;
+    background-color: #22cca462;
+    width: 100%;
+}
+
+.message-right-footer form {
+    padding: 10px;
+    display: flex;
+    justify-content: center; 
+}
+
+.message-right-footer form input {
+    width: 70%;
+    height: 30px;
+    font-size: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 13px;
+}
+
+.message-right-footer form input:focus {
+    outline: none;
+}
+
+.message-right-footer form button {
+    border: none;
+    padding: 10px;
+    margin-left: 5px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.message-right-footer form button:hover {
+    background-color: #f1356d;
+    color: #E4F9F5;
+}
+
+.message-right-content {
+    height: 68vh;
+    overflow-y: auto;
+    margin: 10px 10px 0px 30px
+}
+
+.message-right-content::-webkit-scrollbar {
+    width: 5px;
+    background: none;
+}
+
+.message-right-content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5x;
+}
+
+.message-right-content::-webkit-scrollbar-thumb {
+  background: #40514E;
+  border-radius: 1px;
+}
+
+
+.message-right-content > div { 
+    width: fit-content;
+    max-width: 370px;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    margin-bottom: 10px
+}
+
+.message-sent {
+    background-color: #22afb4;
+    color: #E4F9F5;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.message-received {
+    position: relative;
+    background-color: #22cca4;
+    color: #E4F9F5;
+}
+
+.message-content {
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.message-date {
+    position: relative;
+    text-align: right;
 }

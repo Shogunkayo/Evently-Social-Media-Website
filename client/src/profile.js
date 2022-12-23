@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import { store } from './redux/store.js'
 import Navbar from './navbar.js';
@@ -10,6 +10,7 @@ import './stylesheets/profile.css'
 const ProfilePage = () => {
     
     const profileID = useParams().handle
+    const navigate = useNavigate()
 
     const [isSameUser, setIsSameUser] = useState(true);
     const [isUpdating, setIsUpdating] = useState(false);
@@ -159,6 +160,18 @@ const ProfilePage = () => {
         })
     }
 
+    const handleMessage = () => {
+        fetch(`http://localhost:4000/dash/message/${currentUser._id}/${userDetails._id}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json', 'Authorization': 'Bearer: '+ store.getState().auth.user.accessToken},
+            body: JSON.stringify({sname: currentUser.user_name, rname: userDetails.user_name})
+        }).then((response) => {
+            response.json().then((body) => {
+                navigate('/message')
+            })
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let userBio = changeUserBio
@@ -235,7 +248,7 @@ const ProfilePage = () => {
                             {isSameUser && isUpdating && <button className='profile-update-cancel' onClick={()=>{setIsUpdating(false)}}>Cancel</button>}
                             {!isSameUser && currentUser && !isUserFollowing && <button className='profile-follow' onClick={handleFollow}>Follow</button>}
                             {!isSameUser && currentUser && isUserFollowing && <button className='profile-unfollow' onClick={handleUnfollow}>Unfollow</button>}
-                            {!isSameUser && <button className='profile-message'>Message</button>}
+                            {!isSameUser && <button className='profile-message' onClick={handleMessage}>Message</button>}
                         </div>
                         <div className='profile-user-details-2'>
                             <p><span>{userDetails.user_posts.length}</span> posts</p>

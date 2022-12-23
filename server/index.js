@@ -24,7 +24,7 @@ app.use(bodyParser.json())
 app.use('/api',router)
 app.use('/dash', verifyJWT, eventRouter)
 app.use('/dash', verifyJWT, userRouter)
-app.use('/dash', verifyJWT, messageRouter)
+app.use('/dash/message', verifyJWT, messageRouter)
 app.use((err, req, res, next)=>{
     res.status(422).send({err: err.message})
 })
