@@ -10,13 +10,14 @@ Evently is a social media website designed to promote events. We make it easier 
 - Explore page: Search for events created by other users, with sort and filter options. Comment on posts to interact with the community. Like posts to show that you are interested. Liked posts are saved in your profile page
 - Profile page: Update your profile photo and your user bio. See all the events you have created as well as the events you have saved. Follow other users to get their posts on your dashboard.
 - Notifications: Get notifications when other users follow you, comment on your posts or like your posts.
+- Messaging: Communicate with fellow users privately!
 
 ### Pending
-- Implement JWT refresh tokens to enhance security
+- Implement JWT refresh tokens to enhance security &nbsp; :heavy_multiplication_x: &nbsp;  scrapped for future project
 - ~~Update the navigation bar and make it responsive and modern~~ &nbsp; :heavy_check_mark:
 - ~~Enable users to follow each other~~ &nbsp; :heavy_check_mark:
-- Create a dashboard page
-- Add a private messaging feature
+- Create a dashboard page &nbsp; :heavy_multiplication_x:
+- ~~Add a private messaging feature~~ &nbsp; :heavy_check_mark:
 
 ## Installation
 
