@@ -164,9 +164,9 @@
 }
 
 .message-right-content {
-    height: 68vh;
+    height: 67vh;
     overflow-y: auto;
-    margin: 10px 10px 0px 30px
+    margin: 10px 10px 0px 30px;
 }
 
 .message-right-content::-webkit-scrollbar {
@@ -201,7 +201,7 @@
     margin-left: auto;
 }
 
-.message-received {
+.message-recieved {
     position: relative;
     background-color: #22cca4;
     color: #E4F9F5;
