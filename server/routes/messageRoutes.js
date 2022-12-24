@@ -59,4 +59,15 @@ messageRouter.get('/room/:sid/:roomid', (req, res, next) => {
     }
 })
 
+messageRouter.post('/room/:sid/:roomid', (req, res, next) => {
+    if(req.params.sid === req.id) {
+        MessageRoom.findByIdAndUpdate(req.params.roomid, {$push: {messages: req.body}}).then(() => {
+            res.json({message: 'Message sent'})
+        })
+    }
+    else {
+        res.status(401).json({message: 'Unauthorized'})
+    }
+})
+
 export default messageRouter

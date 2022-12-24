@@ -54,13 +54,13 @@ userRouter.get('/user/notif/:id', (req, res, next)=>{
     }
 })
 
-userRouter.put('/user/notif/:id', (req, res, next) => {
+userRouter.put('/user/notif/:id', async (req, res, next) => {
     try {
-        User.findByIdAndUpdate(req.params.id, {$push: {notifications: {_id: req.body._id, message: req.body.message, time: new Date()}}}).then(()=>{
-            res.json({message: 'Notification Added'})
-        })
-    } catch {
-        
+        await User.findByIdAndUpdate(req.params.id, {$push: {notifications: {_id: req.body._id, message: req.body.message, time: new Date()}}})
+        res.json({message: 'Notification Added'})
+    } 
+    catch (error) {
+        res.json({message: 'Task failed'})
     }
 })
 
